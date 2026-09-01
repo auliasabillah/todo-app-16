@@ -1,19 +1,23 @@
 import React from 'react';
-import TodoFrom from './components/TodoFrom';
+import TodoFrom from './components/TodoForm';
 import TodoList from './components/TodoList';
 import {getTodos} from '@/lib/todos';
+import TodoStateOnlyApp from "./components/TodoStateOnlyApp";
 
 export default async function TodoPage() {
-  const todos=await getTodos();
+  const initialTodos= await getTodos();
 
   return(
-    <main className='min-h-screen p-8 bg-gray-100'>
-      <div className='max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border-gray-100'>
-        <header className='mb-8 border-b pb-4'>
-          <h1 className='text-3xl font-bold text-gray-800 text-center'>Daftar Tugas (Todo List)</h1>
-        </header>
-        <TodoFrom/>
-        <TodoList todos={todos}/>
+    <main className='min-h-screen p-6 md:p-10 bg-white text-dark-70'>
+      <div className='max-w-2xl mx-auto space-y-6'>
+        <div className='bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-70'>
+          <header className='mb-6 border-b border-gray-100 pb-4'>
+            <h1 className='text-2xl md:text-3xl font-bold text-dark-70 text-center'>
+              Daftar Tugas (Todo List)
+            </h1>
+          </header>
+          <TodoStateOnlyApp initialTodos={initialTodos}/>
+        </div>
       </div>
     </main>
   );
