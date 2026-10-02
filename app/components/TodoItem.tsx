@@ -25,7 +25,7 @@ export default function TodoItem ({todo, onToggle, onDelete}: TodoItemProps){
                 </label>
             </div>
             <div className='flex items-center gap-2 shrink-0'>
-                <Link href={`/task/${todo.id}`} className="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-primary-10 text-primary-10 text-primary-90 hover:bg-primary-20 transition-colors">
+                <Link href={`/task/${todo.id}`} className="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-primary-10 text-primary-90 hover:bg-primary-20 transition-colors">
                 Detail 
                 </Link>
                 {onDelete && (

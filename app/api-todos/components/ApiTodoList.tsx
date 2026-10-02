@@ -17,7 +17,7 @@ export default function ApiTodoList({initialTasks}: ApiTodoListProps){
             prev.map((t) => (t.id === id ? {...t, completed: targetStatus}: t))
         );
         try{
-            await todoService.updateTodosStatus(id, targetStatus);
+            await todoService.updateTodoStatus(id, targetStatus);
         } catch (err) {
             console.warn('Simulasi update ke API DummyJSON gagal (fallback state):', err);
         }

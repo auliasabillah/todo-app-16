@@ -10,10 +10,13 @@ type TodoListProps ={
 }
 
 export default function TodoList({todos, onToggleTodo, onDeleteTodo}: TodoListProps){
-    if (todos.length === 0){
-        return(
-            <div className='text-center p-8 text-gray-500 border-2 border-dashed border-gray-200 rounded-md'>
-                <p>Belum ada tugas, Yay!</p>
+    if (todos.length === 0) {
+        return (
+            <div className="text-center p-8 text-gray-500 border-2 border-dashed border-gray-200 rounded-md">
+                <p className="font-medium">Belum ada tugas.</p>
+                <p className="text-xs text-gray-400 mt-1">
+                    Tambahkan tugas baru di atas untuk memulai!
+                </p>
             </div>
         );
     }
@@ -25,7 +28,7 @@ export default function TodoList({todos, onToggleTodo, onDeleteTodo}: TodoListPr
                     {todos.length} item
                 </span>
             </div>
-            <ul>
+            <ul className="space-y-2">
                 {todos.map((todo) => (
                     <TodoItem key={todo.id} todo={todo} onToggle={onToggleTodo} onDelete={onDeleteTodo}/>
                 ))}
